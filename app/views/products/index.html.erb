@@ -14,6 +14,8 @@
   </tfoot>
   <tbody>
     <% @products.each do |product| %>
+    <%# alternating background colors in every line with corresponding css rules
+        tr.list_line_odd tr.list_line_even %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
         <td class="image">
@@ -23,6 +25,8 @@
         <td class="description">
           <h1><%= product.title %></h1>
           <p>
+          <%# truncate to show only forst 80 chars of description and 
+              strip_tags to remove html tags but keep the formatting %>
             <%= truncate(strip_tags(product.description),
                          length: 80) %>
           </p>
@@ -36,6 +40,7 @@
               <%= link_to 'Destroy',
                            product, 
                           method: :delete,
+                          #popup dialog to confirm the delete action
                           data: { confirm: 'Are you sure?' } %>
             </li>
           </ul>
