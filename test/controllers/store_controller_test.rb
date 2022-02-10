@@ -11,4 +11,6 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     assert_select '.price', /\$[,\d]+\.\d\d/
   end
 
+  
+
 end
