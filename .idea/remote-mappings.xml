@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteMappingsManager">
+    <list>
+      <list>
+        <remote-mappings server-id="ruby@\\wsl$\Ubuntu-20.04/usr/share/rvm/rubies/ruby-2.6.9/bin/ruby">
+          <settings>
+            <list>
+              <mapping local-root="$USER_HOME$/RubymineProjects" remote-root="//wsl$/Ubuntu-20.04/home/pavlos/RubymineProjects" />
+            </list>
+          </settings>
+        </remote-mappings>
+      </list>
+    </list>
+  </component>
+</project>
