@@ -16,6 +16,14 @@
     </header>
     <section class="content">
       <nav class="side_nav">
+        <% if @cart %>
+          <%# adding an if so that if we navigate to pages where cart isn't set in their controller, %>
+          <%# such as products, we won't get an error. REMEMBER cart is set only in store controller %>
+          <div id="cart" class="carts">
+            <%= render_if @cart && @cart.line_items.any?, @cart %> <%# helped method in the application helper %>
+          </div>
+        <% end %>
+
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/questions">Questions</a></li>
