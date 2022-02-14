@@ -9,6 +9,12 @@ class CartsController < ApplicationController
 
   # GET /carts/1 or /carts/1.json
   def show
+    # prevent access to any other cart other than the one in the session
+    @cart = Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+    @cart = Cart.create
+    session[:cart_id] = @cart.id
+    @cart
   end
 
   # GET /carts/new

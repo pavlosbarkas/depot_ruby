@@ -42,6 +42,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy line_item" do
+
     assert_difference('LineItem.count', -1) do
       delete line_item_url(@line_item)
     end
