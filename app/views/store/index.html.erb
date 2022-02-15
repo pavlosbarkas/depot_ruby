@@ -3,8 +3,8 @@
 <% end %>
 
 <h1>Your Pragmatic Catalog</h1>
-<% if @count > 5 %> 
-    <p>You've visited the index page <%= pluralize(@count, "time") %>!</p>
+<% if session[:counter] > 5 %>
+    <p>You've visited the index page <%= pluralize(session[:counter], "time") %>!</p>
 <% end %>
 
 <ul class="catalog">
