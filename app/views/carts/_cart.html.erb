@@ -15,7 +15,7 @@
         </tr>
       </tfoot>
     </table>
-    <%= button_to 'Empty Cart', cart, method: :delete, data: {confirm: 'Are you sure?'} %>
+    <%= button_to 'Empty Cart', cart, method: :delete, data: {confirm: 'Are you sure?'}, remote: true %>
 
   <% end %>
 
