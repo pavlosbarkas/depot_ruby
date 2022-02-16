@@ -53,6 +53,9 @@
       input[type="submit"].checkout:hover {
         background-color: #efe;
       }
+      input[type="submit"].checkout:disabled {
+        background-color: grey;
+      }
     }
   }
 }
