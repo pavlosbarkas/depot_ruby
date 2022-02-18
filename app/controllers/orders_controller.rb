@@ -63,6 +63,22 @@ class OrdersController < ApplicationController
     end
   end
 
+  def pay_type_params
+    # notice that in every component in PayTypeSelector we've named the fields in such
+    # a way so that we can access them here easily
+    # these params can be used to submit the payment details to the customer's
+    # back-end payment processing system
+    if order_params[:pay_type] == "Credit Card"
+      params.require(:order).permit(:credit_card_number, :expiration_date)
+    elsif order_params[:pay_type] == "Check"
+      params.require(:order).permit(:routing_number, :account_number)
+    elsif order_params[:pay_type] == "Purchase Order"
+      params.require(:order).permit(:po_number)
+    else
+      {}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
