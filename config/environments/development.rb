@@ -39,6 +39,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # emails will be appended to an array accessible through ActionMailer::Base.deliveries attribute
+  # and won't be actually sent to the client
+  config.action_mailer.delivery_method = :test
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
