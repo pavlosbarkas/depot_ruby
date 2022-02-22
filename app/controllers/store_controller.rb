@@ -1,4 +1,8 @@
 class StoreController < ApplicationController
+
+  # every user must be able to access the store, so we skip authorization
+  skip_before_action :authorize
+
   include CurrentCart
   before_action :set_cart
   def index

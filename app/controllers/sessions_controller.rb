@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+
+  # a session is always created in order to prompt for login if needed
+  skip_before_action :authorize
+
   def new
 
   end

@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+
+  # creating a new order doesn't need authorization so every user can do it
+  skip_before_action :authorize, only: [:new, :create]
+
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_isnt_empty, only: :new

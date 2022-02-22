@@ -1,4 +1,8 @@
 class CartsController < ApplicationController
+
+  # creating, updating and deleting a cart doesn't need authorization so every user can do it
+  skip_before_action :authorize, only: [:create, :update, :destroy]
+
   before_action :set_cart, only: %i[ show edit update destroy ]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 

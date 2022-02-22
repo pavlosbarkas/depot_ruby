@@ -1,4 +1,8 @@
 class LineItemsController < ApplicationController
+
+  # creating a new line item to add to cart doesn't need authorization so every user can do it
+  skip_before_action :authorize, only: :create
+
   include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :set_line_item, only: %i[ show edit update destroy ]
