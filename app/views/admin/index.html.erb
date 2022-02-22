@@ -1,0 +1,6 @@
+<h1>Welcome</h1>
+<p>
+  It's <%= Time.now %>.
+  <% # to get the total orders we write in admin controller's index action @total_orders = Order.count %>
+  We have <%= pluralize(@total_orders, "order") %>.
+</p>
