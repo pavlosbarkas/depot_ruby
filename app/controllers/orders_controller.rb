@@ -49,6 +49,9 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
+        #ship_date update send email
+
+        #ship_date update send email
         format.html { redirect_to order_url(@order), notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -92,7 +95,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :ship_date)
     end
 
   # If there is nothing in the cart we redirect the user to the store page in order to add sth to cart

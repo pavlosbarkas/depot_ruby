@@ -2,7 +2,7 @@
     <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h1>Your Pragmatic Catalog</h1>
+<h1><%= t('.title_html') %></h1>
 
 <ul class="catalog">
     <% cache @products do %>
@@ -20,8 +20,8 @@
                     <div class="price">
                         <%= number_to_currency(product.price) %> <%# , :locale => :fr for euro %>
                         <%# Add to Cart button. Creates a new line_item by sending the product id %>
-                        <%= button_to 'Add to Cart', line_items_path(product_id: product) , remote: true %>
-                        <%# wihout remote true the button creates a link with the create action. with remote true it sends an ajax request instead %>
+                        <%= button_to t('.add_html'), line_items_path(product_id: product, locale: I18n.locale) , remote: true %>
+                        <%# without remote true the button creates a link with the create action. with remote true it sends an ajax request instead %>
                     </div>
                 </li>
             <% end %>

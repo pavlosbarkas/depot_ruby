@@ -59,4 +59,8 @@ validates :pay_type, inclusion: pay_types.keys
 
   end
 
+  def shipped()
+    OrderMailer.shipped(self).deliver_later
+  end
+
 end
