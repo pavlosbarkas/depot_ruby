@@ -4,6 +4,7 @@
   "dependencies": {
     "@babel/preset-react": "^7.7.0",
     "@rails/actioncable": "^7.0.2-2",
+    "@rails/actiontext": "^6.0.4-4",
     "@rails/activestorage": "^7.0.2-2",
     "@rails/ujs": "^7.0.2-2",
     "@rails/webpacker": "^5.4.3",
@@ -11,6 +12,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "trix": "^1.2.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
