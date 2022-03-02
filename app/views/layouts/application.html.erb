@@ -45,6 +45,9 @@
           <li><a href="/questions"><%= t('.questions') %></a></li>
           <li><a href="/news"><%= t('.news') %></a></li>
           <li><a href="/contact"><%= t('.contact') %></a></li>
+          <% if !session[:user_id] %>
+            <li><%= link_to 'Login', login_url %></li>
+          <% end %>
         </ul>
 
         <% #this will only appear to admins %>

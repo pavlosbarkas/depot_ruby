@@ -96,21 +96,21 @@ class OrdersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type, :ship_date)
-    end
+  def order_params
+    params.require(:order).permit(:name, :address, :email, :pay_type, :ship_date)
+  end
 
   # If there is nothing in the cart we redirect the user to the store page in order to add sth to cart
-    def ensure_cart_isnt_empty
-      if @cart.line_items.empty?
-        redirect_to store_index_url, notice: 'Your cart is empty'
-      end
+  def ensure_cart_isnt_empty
+    if @cart.line_items.empty?
+      redirect_to store_index_url, notice: 'Your cart is empty'
     end
+  end
 
   # if the ship_date of the order has changed, an email is sent to the customer
   def send_shipped_email(old_ship_date)

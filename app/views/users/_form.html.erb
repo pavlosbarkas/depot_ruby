@@ -21,13 +21,18 @@
     </div>
 
     <div class="field">
-      <%= form.label :password, 'Password:' %>
-      <%= form.password_field :password, size: 40 %>
+      <%= form.label :current_password, 'Current password:' %>
+      <%= form.password_field :current_password, size: 40, required: true %>
     </div>
 
     <div class="field">
-      <%= form.label :password_confirmation, 'Confirm:' %>
-      <%= form.password_field :password_confirmation, id: :user_password_confirmation, size: 40 %>
+      <%= form.label :password, 'New password:' %>
+      <%= form.password_field :password, size: 40, required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation, 'Confirm new password:' %>
+      <%= form.password_field :password_confirmation, id: :user_password_confirmation, size: 40, required: true %>
     </div>
 
     <div class="actions">

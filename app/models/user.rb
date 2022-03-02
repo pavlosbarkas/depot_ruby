@@ -8,6 +8,19 @@ class User < ApplicationRecord
   class Error < StandardError
   end
 
+  attr_accessor :current_password
+  validate :current_password_is_correct, on: :update
+
+  def current_password_is_correct
+    if !password.blank?
+      user = User.find_by_id(id)
+
+      if (user.authenticate(current_password) == false)
+        errors.add(:current_password, 'is incorrect.')
+      end
+    end
+  end
+
   private
     def ensure_an_admin_remains
       if User.count.zero?
