@@ -10,9 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_tree ../../assets/stylesheets
  *= require_self
  */
+
+@import "css/actiontext.scss";
+@import "css/admin.scss";
+@import "css/carts.scss";
+@import "css/line_items.scss";
+@import "css/orders.scss";
+@import "css/products.scss";
+@import "css/scaffolds.scss";
+@import "css/sessions.scss";
+@import "css/store.scss";
+@import "css/users.scss";
 
  .notice, #notice{
      background: #ffb;
