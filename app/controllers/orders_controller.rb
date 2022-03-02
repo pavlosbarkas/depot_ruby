@@ -8,6 +8,9 @@ class OrdersController < ApplicationController
   before_action :ensure_cart_isnt_empty, only: :new
   before_action :set_order, only: %i[ show edit update destroy ]
 
+  # send email when RecordNotFound occurs
+  rescue_from ActiveRecord::RecordNotFound, with: :email_admin
+
   # GET /orders or /orders.json
   def index
     @orders = Order.all
@@ -114,5 +117,10 @@ class OrdersController < ApplicationController
     if @order.ship_date != old_ship_date
       ShippedJob.perform_later(@order)
     end
+  end
+
+  def email_admin
+    FailureMailer.failure_occured.deliver_now
+    redirect_to orders_url
   end
 end
