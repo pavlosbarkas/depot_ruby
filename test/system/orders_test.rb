@@ -28,8 +28,8 @@ class OrdersTest < ApplicationSystemTestCase
 
     visit store_index_url
 
-    click_on 'Add to Cart', match: :first
-    click_on 'Checkout'
+    click_button 'Add to Cart', match: :first
+    click_button 'Checkout'
 
     fill_in 'order_name', with: 'Dave Thomas'
     fill_in 'order_address', with: '123 Main Street'

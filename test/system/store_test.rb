@@ -12,7 +12,7 @@ class StoreTest < ApplicationSystemTestCase
   test "empty_cart_button_hides_cart" do
     visit store_index_url
     assert_selector('#cart', visible: false)
-    click_on 'Add to Cart', match: :first
+    click_button 'Add to Cart', match: :first
     assert_selector('#cart', visible: true)
     page.accept_confirm { click_on 'Empty Cart' }
     assert_selector('#cart', visible: false)
