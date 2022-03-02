@@ -48,10 +48,14 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
     respond_to do |format|
-      if @order.update(order_params)
-        #ship_date update send email
+      # get the current order and store its ship_date
+      @order = Order.find(params[:id])
+      old_ship_date = @order.ship_date
 
-        #ship_date update send email
+      if @order.update(order_params)
+        #ship_date update send email method
+        send_shipped_email :old_ship_date
+
         format.html { redirect_to order_url(@order), notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -104,4 +108,11 @@ class OrdersController < ApplicationController
         redirect_to store_index_url, notice: 'Your cart is empty'
       end
     end
+
+  # if the ship_date of the order has changed, an email is sent to the customer
+  def send_shipped_email(old_ship_date)
+    if @order.ship_date != old_ship_date
+      ShippedJob.perform_later(@order)
+    end
+  end
 end

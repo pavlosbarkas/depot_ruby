@@ -62,7 +62,7 @@ class OrdersTest < ApplicationSystemTestCase
     assert_equal 1, order.line_items.size
 
     # check if the email was sent
-    # duo to config in development mode the mail goes to ActionMailer::Base.deliveries array
+    # due to config in development mode the mail goes to ActionMailer::Base.deliveries array
     # and it isn't sent to some real address
     mail = ActionMailer::Base.deliveries.last
     assert_equal ['dave@example.com'], mail.to
