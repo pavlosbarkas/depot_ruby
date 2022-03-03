@@ -13,7 +13,7 @@
       </p>
       <% if support_request.order %>
         <% Order.where(email: support_request.order.email.to_s).find_each do |customer_order| %>
-          <h3>Recent Order</h3>
+          <h3>Order <%= customer_order.id %></h3>
           <dl>
             <dt>Name</dt>
             <dd><%= customer_order.name %></dd>
